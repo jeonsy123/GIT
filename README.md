@@ -66,3 +66,8 @@
 
 ```bash
 ros2 launch dsr_bringup2 dsr_bringup2_rviz.launch.py mode:=real host:=192.168.1.100 port:=12345 model:=m0609
+```
+#### Step 2: 로봇 제어 노드 실행
+```bash
+ros2 run cobot1 파이썬 파일
+```
