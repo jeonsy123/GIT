@@ -57,10 +57,10 @@
 ---
 ## 4. 핵심 라이브러리 (Core Libraries)
 
-본 프로젝트는 두산 로보틱스 공식 ROS2 인터페이스를 활용합니다.
+본 프로젝트는 두산 로보틱스 공식 ROS2 인터페이스를 활용한다.
 
-* **DR_init:** 로봇 ID, 모델 및 ROS2 노드 객체 바인딩을 담당합니다.
-* **DSR_ROBOT2:** `movej`, `movel`, `amove_periodic` 등 물리적 모션 및 힘 제어 API를 제공합니다.
+* **DR_init:** 로봇 ID, 모델 및 ROS2 노드 객체 바인딩을 담당한다.
+* **DSR_ROBOT2:** `movej`, `movel`, `amove_periodic` 등 물리적 모션 및 힘 제어 API를 제공한다.
 * 
 ## 5. 사용 설명 (Usage Guide)
 
