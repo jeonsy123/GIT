@@ -33,7 +33,7 @@
 ## 1. 시스템 설계 및 플로우 차트 (System Design)
 
 ### 1.1 프로세스 플로우
-![Process Flowchart](./image.png)
+!<img width="4308" height="2464" alt="image" src="https://github.com/user-attachments/assets/5de331ad-278e-4f11-8d00-74f6b33af30c" />
 > 밥 푸기(힘 제어), 소스 도포(주기적 모션), 배식(좌표 제어)의 단계별 흐름도입니다.
 
 ---
