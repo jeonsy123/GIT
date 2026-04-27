@@ -7,7 +7,7 @@
 ## 1. 운영체제 환경 (Environment)
 * **OS:** Ubuntu 22.04 LTS
 * **ROS 2:** Humble 
-* **Language:** Python, DLR
+* **Language:** Python, DRL
 
 ---
 
@@ -55,8 +55,14 @@
 * 🟪 **Topic (Pink):** 끊김 없이 스트리밍되어야 하는 로봇 상태 데이터 구독 (Device 1 $\rightarrow$ Device 2)
 
 ---
+## 4. 핵심 라이브러리 (Core Libraries)
 
-## 4. 사용 설명 (Usage Guide)
+본 프로젝트는 두산 로보틱스 공식 ROS2 인터페이스를 활용합니다.
+
+* **DR_init:** 로봇 ID, 모델 및 ROS2 노드 객체 바인딩을 담당합니다.
+* **DSR_ROBOT2:** `movej`, `movel`, `amove_periodic` 등 물리적 모션 및 힘 제어 API를 제공합니다.
+* 
+## 5. 사용 설명 (Usage Guide)
 
 본 시스템은 두산 로봇 드라이버를 통해 실제 로봇과 연결된 상태에서 작동한다. 원활한 실행을 위해 두 개의 터미널을 열어 순차적으로 명령어를 입력한다.
 
