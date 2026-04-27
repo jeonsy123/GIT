@@ -23,12 +23,12 @@
 ### 3.1 주요 제어 로직
 본 시스템은 각 음식의 특성에 따라 세 가지 핵심 제어 방식을 사용한다.
 
-1. **힘 제어 기반 밥 푸기 (Force Control):** `task_compliance_ctrl`을 통해 Z축 바닥 접촉을 감지(`check_force_condition`)하고, 반원 궤적(`movesx`)을 그려 밥을 퍼올린다.
-2. **비동기 주기적 모션 (Periodic Motion):** `amove_periodic`을 사용하여 로봇이 좌우로 흔들리는 동안 그리퍼(`set_digital_output`)를 조여 소스를 짜는 동작을 동시에 수행한다.
-3. **디지털 I/O 그리퍼 제어:** 디지털 출력값 조합을 통해 그리퍼의 상태를 3단계(**RELEASE / BASIC / TIGHT**)로 정밀 제어한다.
+1. **rice_1.py (Force Control):** `task_compliance_ctrl`을 통해 Z축 바닥 접촉을 감지(`check_force_condition`)하고, 반원 궤적(`movesx`)을 그려 밥을 퍼올린다.
+2. **sauce.py (Periodic Motion):** `amove_periodic`을 사용하여 로봇이 좌우로 흔들리는 동안 그리퍼(`set_digital_output`)를 조여 소스를 짜는 동작을 동시에 수행한다.
+3. **tong.py:** 디지털 출력값 조합을 통해 그리퍼의 상태를 3단계(**RELEASE / BASIC / TIGHT**)로 정밀 제어한다.
 
 ### 3.2 프로세스 플로우 및 아키텍처
-<img width="4308" height="2464" alt="image" src="[https://github.com/user-attachments/assets/5de331ad-278e-4f11-8d00-74f6b33af30c](https://github.com/user-attachments/assets/5de331ad-278e-4f11-8d00-74f6b33af30c)" />
+<img width="4308" height="2464" alt="image" src="https://github.com/user-attachments/assets/40aa7b78-5011-4173-8352-6f41884901dd" />
 
 본 프로젝트는 시스템의 부하를 분산하고 조작 편의성을 높이기 위해, 로봇 직접 제어부(Device 1)와 원격 명령/UI 관리부(Device 2)로 나뉜 **멀티 디바이스 분산 아키텍처**를 채택했다. 
 
@@ -36,7 +36,8 @@
 
 **1. Device 1: 로봇 직접 제어 및 상태 퍼블리셔 (Robot Control PC)**
 실제 Doosan M0609 로봇과 통신하며 물리적인 동작을 수행하는 핵심 장비이다.
-* **Robot Status Publisher:** 로봇의 실시간 상태(위치, 조인트 각도, 힘 등)를 읽어와 ROS2 `Topic`(분홍색 선)으로 발행한다.
+* **Robot Status Publisher:** 로봇의 실시간 상태(위치, 조인트 각도, 힘 등
+)를 읽어와 ROS2 `Topic`(분홍색 선)으로 발행한다.
 * **Controller Node & DSR Node:** Device 2로부터 모션 제어 명령을 `Service`(파란색 선) 형태로 수신하여, 내부 태스크 스레드를 통해 `DSR2 Controller`에 로봇 구동 명령을 하달한다.
 
 **2. Device 2: 원격 태스크 관리 및 Web UI (Task & UI PC)**
